@@ -136,6 +136,16 @@ _.extend(ColorPicker.prototype, {
     events.bind(window, 'mouseup', remove)
     move(e)
   },
+  set: function (color) {
+    this.color.set.apply(this.color, arguments)
+    this.update()
+    var l = this.color.l * 2
+      , ss = l <= 1 ? l : 2 - l
+      , v = (l + ss) / 2
+      , s = (2*ss) / (l + ss)
+    this.mainpos.style.top = 100 * (1 - v) + '%'
+    this.mainpos.style.left = 100 * s + '%'
+  },
   update: function () {
     this.updateMain()
     this.updateHue()
