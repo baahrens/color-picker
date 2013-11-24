@@ -1,0 +1,27 @@
+{
+  "name": "color-picker",
+  "repo": "jazzui/color-picker",
+  "description": "A color picker component",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "component/domify": "*",
+    "component/event": "*",
+    "component/query": "*",
+    "component/emitter": "*",
+    "lodash/lodash": "*",
+    "jkroso/position": "*",
+    "jazzui/color": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": [
+    "index.js",
+    "template.js"
+  ],
+  "styles": [
+    "color-picker.css"
+  ],
+  "remotes": []
+}

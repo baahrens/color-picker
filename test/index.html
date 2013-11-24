@@ -1,0 +1,60 @@
+<!doctype html5>
+<html>
+  <head>
+    <title>Hi</title>
+    <style>
+      body {
+      padding: 200px;
+      }
+      #thing {
+      width: 30px;
+      height: 20px;
+      background-color: green;
+      border-radius: 10px;
+      border: 5px solid black;
+      padding: 20px;
+      }
+    </style>
+    <link rel="stylesheet" href="../build/build.css">
+    <script src="../build/build.js"></script>
+  </head>
+  <body>
+
+    <div id="thing"></div>
+    <button>Hello!</button>
+    <script>
+      /*var S = require('slider')
+      var t = require('event')
+      var s = new S
+      s.on('change', function (val) {
+        thing.innerHTML = val
+      })
+      , showing = false
+      t.bind(thing, 'click', function () {
+        if (!showing)
+        s.show(thing)
+        else
+        s.hide()
+        showing = !showing
+      })
+      t.bind(q('button'), 'click', function () {
+        s.set(100)
+      })
+      */
+      var q = require('query')
+      var thing = q('#thing')
+      var ColorPicker = require('color-picker')
+        , c = new ColorPicker()
+      document.body.appendChild(c.el)
+      c.on('slide', function (color) {
+        thing.style.borderColor = 'hsla(' + color.h*360 + ', ' + color.s*100 + '%, ' + color.l*100 + '%, ' + color.a + ')'
+      })
+      c.on('change', function (color) {
+        console.log(color)
+        thing.style.backgroundColor = 'hsla(' + color.h*360 + ', ' + color.s*100 + '%, ' + color.l*100 + '%, ' + color.a + ')'
+      })
+      document.body.appendChild(new ColorPicker({width: 400, height: 300}).el)
+    </script>
+  </body>
+</html>
+
