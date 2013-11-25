@@ -80,7 +80,7 @@ _.extend(ColorPicker.prototype, {
         , s = limit(pos.x / self.width)
         , l = (2 - s) * v
       self.color.l = l / 2
-      self.color.s = v ? s * v / (l <= 1 ? l : 2 - l) : 0
+      self.color.s = l === 2 ? 1 : (v ? s * v / (l <= 1 ? l : 2 - l) : 0)
       self.mainpos.style.top = 100 * (1 - v) + '%'
       self.mainpos.style.left = 100 * s + '%'
       self.updateAlphaColor()
