@@ -139,10 +139,12 @@ _.extend(ColorPicker.prototype, {
   set: function (color) {
     this.color.set.apply(this.color, arguments)
     this.update()
-    var l = this.color.l * 2
-      , ss = l <= 1 ? l : 2 - l
-      , v = (l + ss) / 2
-      , s = (2*ss) / (l + ss)
+    var a = this.color.h
+      , b = this.color.s
+      , c = this.color.l
+    b*=c<.5?c:1-c
+    var s = 2*b/(c+b)
+      , v = c + b
     this.mainpos.style.top = 100 * (1 - v) + '%'
     this.mainpos.style.left = 100 * s + '%'
   },
